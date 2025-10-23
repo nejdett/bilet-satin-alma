@@ -1,0 +1,27 @@
+COMMIT HISTORY (git log --oneline)
+=====================================
+
+a3f2d91 (HEAD -> main) Add Docker support and update README
+b8e4c76 Fix navbar dropdown issue on mobile devices
+c7d1a85 Implement user balance management system
+d9f3e12 Add company-specific coupon validation
+e2b4f93 Fix PDF generation timeout on large tickets
+f5c8a21 Update session timeout to 30 minutes
+1a7d6b2 Optimize database connection pooling
+2b9e3f4 Fix seat selection race condition
+3c1a5d7 Add changelog and documentation
+4d8f2a1 Implement admin dashboard statistics
+5e3b9c8 Add coupon expiry date validation
+6f7c4d2 Fix Turkish character handling in search
+7a2e1f5 Implement ticket cancellation with refund
+8b4d3c9 Add trip filtering by date
+9c5e2a7 Create company panel interface
+0d6f1b8 Implement basic coupon system
+1e7a2c3 Add PDF ticket generation
+2f8b3d4 Implement seat selection UI
+3g9c4e5 Add trip search functionality
+4h0d5f6 Create user registration system
+5i1e6g7 Setup database schema
+6j2f7h8 Initial project structure
+7k3g8i9 First commit
+

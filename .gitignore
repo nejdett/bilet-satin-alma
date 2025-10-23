@@ -1,0 +1,18 @@
+.DS_Store
+Thumbs.db
+*.log
+.env
+temp/*.html
+debug.php
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+

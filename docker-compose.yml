@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: bilet-satis-app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./bilet-satis-veritabani.db:/var/www/html/bilet-satis-veritabani.db
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html
+    restart: unless-stopped
+    networks:
+      - bilet-network
+
+networks:
+  bilet-network:
+    driver: bridge
+
