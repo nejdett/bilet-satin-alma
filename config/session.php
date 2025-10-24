@@ -32,7 +32,7 @@ class SessionManager {
     }
     public static function getCurrentUserId() {
         self::startSession();
-        return isset($_SESSION['user_id']) ? (int)$_SESSION['user_id'] : null;
+        return $_SESSION['user_id'] ?? null;
     }
     public static function getCurrentUserRole() {
         self::startSession();

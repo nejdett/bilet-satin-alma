@@ -115,6 +115,21 @@ require_once __DIR__ . '/path_helpers.php';
                     <?php endif; ?>
                     <?php if (SessionManager::hasRole('company')): ?>
                         <li class="nav-item">
+                            <a class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'index.php') ? 'active' : ''; ?>" 
+                               href="<?php 
+                                   $currentPath = $_SERVER['PHP_SELF'];
+                                   if (strpos($currentPath, '/pages/company/') !== false) {
+                                       echo '../../index.php';
+                                   } elseif (strpos($currentPath, '/pages/') !== false) {
+                                       echo '../index.php';
+                                   } else {
+                                       echo 'index.php';
+                                   }
+                               ?>">
+                                <i class="fas fa-home me-1"></i>Ana Sayfa
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link <?php echo (strpos($_SERVER['REQUEST_URI'], 'company_panel.php') !== false) ? 'active' : ''; ?>" 
                                href="<?php 
                                    $currentPath = $_SERVER['PHP_SELF'];
@@ -165,26 +180,7 @@ require_once __DIR__ . '/path_helpers.php';
                                         </a>
                                     </li>
                                 <?php endif; ?>
-                                <?php if (SessionManager::hasRole('company')): ?>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li>
-                                        <a class="dropdown-item text-primary" href="<?php 
-                                            $currentPath = $_SERVER['PHP_SELF'];
-                                            if (strpos($currentPath, '/pages/company/') !== false) {
-                                                echo '../company_panel.php';
-                                            } elseif (strpos($currentPath, '/pages/admin/') !== false) {
-                                                echo '../company_panel.php';
-                                            } elseif (strpos($currentPath, '/pages/') !== false) {
-                                                echo 'company_panel.php';
-                                            } else {
-                                                echo 'pages/company_panel.php';
-                                            }
-                                        ?>">
-                                            <i class="fas fa-building me-2"></i>Firma Paneli
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                                <?php if (!SessionManager::hasRole('admin') || SessionManager::hasRole('company')): ?>
+                                <?php if (!SessionManager::hasRole('admin')): ?>
                                     <li><hr class="dropdown-divider"></li>
                                 <?php endif; ?>
                                 <li>

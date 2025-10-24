@@ -27,9 +27,12 @@ class Ticket {
                 }
             }
             // Check user balance
-            $user = $this->db->fetch("SELECT * FROM User WHERE id = ?", [$userId]);
+            $user = $this->db->fetch("SELECT id, full_name, email, role, balance FROM User WHERE id = ?", [$userId]);
             if (!$user) {
                 throw new Exception('Kullanıcı bulunamadı.');
+            }
+            if ($user['role'] === 'company') {
+                throw new Exception('İşletmeler bilet alamaz.');
             }
             $totalPrice = count($seatNumbers) * $trip['price'];
             if ($couponCode) {
@@ -87,9 +90,12 @@ class Ticket {
             if ($seatNumber < 1 || $seatNumber > $trip['capacity']) {
                 throw new Exception('Geçersiz koltuk numarası.');
             }
-            $user = $this->db->fetch("SELECT * FROM User WHERE id = ?", [$userId]);
+            $user = $this->db->fetch("SELECT id, full_name, email, role, balance FROM User WHERE id = ?", [$userId]);
             if (!$user) {
                 throw new Exception('Kullanıcı bulunamadı.');
+            }
+            if ($user['role'] === 'company') {
+                throw new Exception('İşletmeler bilet alamaz.');
             }
             $totalPrice = $trip['price'];
             if ($user['balance'] < $totalPrice) {
