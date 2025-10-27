@@ -89,3 +89,11 @@ docker exec -it bilet-satis-app bash   # Container'a gir
 - [ ] Seat map görseli (şu an sadece numara)
 - [ ] Otomatik yedekleme sistemi
 
+
+Kullanıcı giriş bilgileri :
+
+company1@company.com - company1234
+company2@company.com - company1234
+company3@company.com - company1234
+user@user.com - user1234
+admin@admin.com - Admin1234 veya admin1234
