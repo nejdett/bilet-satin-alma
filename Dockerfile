@@ -13,7 +13,7 @@ COPY . /var/www/html/
 
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html \
-    chmod -R 755 /var/www/html/database && \
+    &&chmod -R 755 /var/www/html/database \
     && chmod 666 /var/www/html/database/bilet-satis-veritabani.db \
     && mkdir -p /var/www/html/temp \
     && mkdir -p /var/www/html/logs \

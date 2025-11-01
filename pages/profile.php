@@ -15,7 +15,7 @@ if ($userId == '78') {
     $userId = '78fdd259-df09-49bc-9575-117ba6f206e8';
 }
 try {
-    $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+    $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $stmt = $pdo->prepare("SELECT * FROM User WHERE id = ?");
     $stmt->execute([$userId]);
@@ -48,7 +48,7 @@ if (SessionManager::hasRole('company')) {
     $companyId = SessionManager::getCurrentCompanyId();
     if ($companyId) {
         try {
-            $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+            $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $pdo->prepare("SELECT * FROM Bus_Company WHERE id = ?");
             $stmt->execute([$companyId]);
@@ -61,7 +61,7 @@ $ticket = new Ticket();
 $userTickets = [];
 if (!SessionManager::hasRole('company')) {
     try {
-        $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+        $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $pdo->prepare("SELECT id FROM User WHERE email = ?");
         $stmt->execute([$userDetails['email']]);
@@ -181,7 +181,7 @@ include __DIR__ . '/../includes/header.php';
                             $companyStats = ['trips' => 0, 'tickets' => 0, 'revenue' => 0];
                             if ($companyId) {
                                 try {
-                                    $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+                                    $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
                                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                                     $currentDateTime = date('Y-m-d H:i:s');
                                     $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM Trips WHERE company_id = ? AND departure_time > ?");

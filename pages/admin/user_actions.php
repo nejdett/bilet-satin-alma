@@ -9,7 +9,7 @@ if (!SessionManager::hasRole('admin')) {
 }
 header('Content-Type: application/json');
 try {
-    $db = new PDO('sqlite:' . __DIR__ . '/../../bilet-satis-veritabani.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/../../database/bilet-satis-veritabani.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $action = $_POST['action'] ?? 'create';
     switch ($action) {

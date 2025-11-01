@@ -5,7 +5,7 @@ class Database {
     private $dbPath;
     private $isConnected = false;
     private function __construct() {
-        $this->dbPath = __DIR__ . '/../bilet-satis-veritabani.db';
+        $this->dbPath = __DIR__ . '/../database/bilet-satis-veritabani.db';
         $this->connect();
     }
     public static function getInstance() {

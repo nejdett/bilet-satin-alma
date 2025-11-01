@@ -4,7 +4,7 @@ SessionManager::startSession();
 SessionManager::requireRole('admin');
 header('Content-Type: application/json');
 try {
-    $dbPath = __DIR__ . '/../../bilet-satis-veritabani.db';
+    $dbPath = __DIR__ . '/../../database/bilet-satis-veritabani.db';
     if (!file_exists($dbPath)) {
         throw new Exception('Veritabanı dosyası bulunamadı: ' . $dbPath);
     }

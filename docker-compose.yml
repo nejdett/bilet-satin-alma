@@ -6,7 +6,7 @@ services:
       - "8080:80"
     volumes:
       - .:/var/www/html
-      - ./bilet-satis-veritabani.db:/var/www/html/bilet-satis-veritabani.db
+      - ./bilet-satis-veritabani.db:/var/www/html/database/bilet-satis-veritabani.db
     environment:
       - APACHE_DOCUMENT_ROOT=/var/www/html
     restart: unless-stopped

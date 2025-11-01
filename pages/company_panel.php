@@ -13,7 +13,7 @@ if (!$companyId) {
 }
 if (!$companyId) {
     try {
-        $db = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+        $db = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $db->query('SELECT id FROM Bus_Company LIMIT 1');
         $firstCompany = $stmt->fetch();
@@ -33,7 +33,7 @@ if (!$companyId) {
     }
 }
 try {
-    $db = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
     $companyInfo = null;
     if ($companyId) {
         $stmt = $db->prepare('SELECT * FROM Bus_Company WHERE id = ?');

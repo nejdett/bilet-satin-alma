@@ -157,7 +157,7 @@ class User {
     }
     public function getUserById($userId) {
         try {
-            $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+            $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SELECT id, full_name as fullname, email, password, role, company_id, balance 
                     FROM User WHERE id = ?";
@@ -171,7 +171,7 @@ class User {
     }    
     public function getUserByEmail($email) {
         try {
-            $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+            $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SELECT id, full_name as fullname, email, password, role, company_id, balance 
                     FROM User WHERE email = ?";
@@ -282,7 +282,7 @@ class User {
     }  
     private function emailExists($email) {
         try {
-            $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+            $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SELECT COUNT(*) as count FROM User WHERE email = ?";
             $stmt = $pdo->prepare($sql);
@@ -296,7 +296,7 @@ class User {
     }
     public function getBalance($userId) {
         try {
-            $pdo = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+            $pdo = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "SELECT balance FROM User WHERE id = ?";
             $stmt = $pdo->prepare($sql);

@@ -5,7 +5,7 @@ SessionManager::startSession();
 SessionManager::requireRole('admin');
 $pageTitle = 'Admin Paneli - Sistem Yönetimi';
 try {
-    $db = new PDO('sqlite:' . __DIR__ . '/../bilet-satis-veritabani.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/../database/bilet-satis-veritabani.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $userCount = $db->query('SELECT COUNT(*) FROM User')->fetchColumn();
     $adminCount = $db->query('SELECT COUNT(*) FROM User WHERE role = "admin"')->fetchColumn();

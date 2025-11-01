@@ -6,9 +6,9 @@ SessionManager::requireRole('admin');
 $pageTitle = 'İndirim Kuponları - Admin Paneli';
 try {
     $possiblePaths = [
-        __DIR__ . '/../../bilet-satis-veritabani.db',
-        __DIR__ . '/../bilet-satis-veritabani.db',
-        __DIR__ . '/bilet-satis-veritabani.db',
+        __DIR__ . '/../../database/bilet-satis-veritabani.db',
+        __DIR__ . '/../database/bilet-satis-veritabani.db',
+        __DIR__ . 'database/bilet-satis-veritabani.db',
         'bilet-satis-veritabani.db'
     ];
     $dbPath = null;

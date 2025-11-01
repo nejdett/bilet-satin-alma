@@ -6,7 +6,7 @@ SessionManager::startSession();
 SessionManager::requireRole('admin');
 $pageTitle = 'Kullanıcı Yönetimi - Admin Paneli';
 try {
-    $db = new PDO('sqlite:' . __DIR__ . '/../../bilet-satis-veritabani.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/../../database/bilet-satis-veritabani.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $users = $db->query('
         SELECT u.id, u.full_name, u.email, u.role, u.balance, u.created_at, u.last_login, u.company_id,

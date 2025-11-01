@@ -10,7 +10,7 @@ if (!$tripId) {
 }
 $pageTitle = 'Sefer Detayları - Admin Paneli';
 try {
-    $db = new PDO('sqlite:' . __DIR__ . '/../../bilet-satis-veritabani.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/../../database/bilet-satis-veritabani.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $trip = $db->prepare('
         SELECT t.*, bc.name as company_name,

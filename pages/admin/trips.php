@@ -5,7 +5,7 @@ SessionManager::startSession();
 SessionManager::requireRole('admin');
 $pageTitle = 'Sefer Yönetimi - Admin Paneli';
 try {
-    $db = new PDO('sqlite:' . __DIR__ . '/../../bilet-satis-veritabani.db');
+    $db = new PDO('sqlite:' . __DIR__ . '/../../database/bilet-satis-veritabani.db');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $trips = $db->query('
         SELECT t.*, bc.name as company_name,
